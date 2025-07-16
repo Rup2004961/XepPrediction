@@ -1,0 +1,27 @@
+<h1>home page</h1>
+<p>it's a html file</p>
+<p>
+<ul>
+    <li><a href="{% url 'homepage' %}">Home</a></li>
+    <li><a href="{% url 'aboutpage' %}">About</a></li>
+    <li><a href="{% url 'contactpage' %}">Contact</a></li>
+</ul>
+</p>
+
+
+{% if prediction %}
+    <p>predicted crop is :{{prediction }}</p>
+{% endif %}
+
+<form method="post">
+    {%csrf_token%}
+    <label for="temp">please input Temperature</label>
+    <input type="number" name="temp" id="temp"><br><br>
+    <label for="humidity">please input Humidity</label>
+    <input type="number" name="humidity" id="humidity"><br><br>
+    <label for="ph">please input Ph level</label>
+    <input type="number" name="ph" id="ph"><br><br>
+    <label for="water">please input Water Availablity</label>
+    <input type="number" name="water" id="water"><br><br>
+    <button type="submit">get predicted crop</button>
+</form>
